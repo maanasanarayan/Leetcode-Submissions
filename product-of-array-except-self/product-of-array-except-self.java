@@ -1,5 +1,7 @@
 class Solution {
     public int[] productExceptSelf(int[] nums) {
+        /* Using extra memory */
+        /*
         int[] prefixProd = new int[nums.length];
         int[] postfixProd = new int[nums.length];
         int[] result = new int[nums.length];
@@ -27,6 +29,23 @@ class Solution {
             }             
         }
         
+        return result;
+        */
+        
+        /* Space efficient */
+        int[] result = new int[nums.length];
+        int pre = 1;
+        int post = 1;
+        
+        for(int i = 0; i < nums.length; i++) {
+            result[i] = pre;
+            pre = pre * nums[i];
+        }
+        
+        for(int i = nums.length - 1; i >= 0; i--) {
+            result[i] = result[i] * post;
+            post = post * nums[i];
+        }
         return result;
     }
 }
