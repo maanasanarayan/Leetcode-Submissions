@@ -14,10 +14,8 @@ class Solution {
                     return false;
                 } 
             } else {
-                for(Character st : map.keySet()) {
-                    if(map.get(st).equals(words[i])) {
-                        return false;
-                    }
+                if(map.containsValue(words[i])) {
+                    return false;
                 }
                 map.put(ch, words[i]);
             }
