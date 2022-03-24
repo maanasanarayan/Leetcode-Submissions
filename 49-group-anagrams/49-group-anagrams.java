@@ -8,11 +8,10 @@ class Solution {
             Arrays.sort(temp);
             String key = new String(temp);
             
-            if(map.containsKey(key)) {
+            if(map.containsKey(key)) 
                 map.get(key).add(strs[i]);
-            } else {
+            else 
                 map.put(key, new ArrayList<>(Arrays.asList(strs[i])));
-            }
         }
         
         for(List<String> value : map.values()) {
