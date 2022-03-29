@@ -28,10 +28,24 @@ class Solution {
     }
     
     private void inOrder(TreeNode root, List<Integer> lst) {
+        // if(root == null) return;
+        // inOrder(root.left, lst);
+        // lst.add(root.val);
+        // inOrder(root.right, lst);
+        // return;
         if(root == null) return;
-        inOrder(root.left, lst);
-        lst.add(root.val);
-        inOrder(root.right, lst);
-        return;
+        Stack<TreeNode> stk = new Stack<>();
+        
+        while(!stk.isEmpty() || root != null) {
+            
+            while(root != null) {
+                stk.push(root);
+                root = root.left;
+            }
+            
+            root = stk.pop();
+            lst.add(root.val);
+            root = root.right;
+        }
     }
 }
