@@ -6,9 +6,10 @@ class Solution {
         20 21 22
         */
         int maxWealth = 0;
+        int sum;
         
         for(int i = 0; i < accounts.length; i++) {
-            int sum = 0;
+            sum = 0;
             for(int j = 0; j < accounts[0].length; j++) {
                 sum = sum + accounts[i][j];
             }
